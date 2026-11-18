@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PALMA HEAT — Bahía Palma</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23ff7a1a'/%3E%3Ccircle cx='8' cy='8' r='4' fill='%23ffd23e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="app"></div>
+
+<div id="hud">
+  <div id="vignette"></div>
+  <div id="topLeft">
+    <div id="cash">$0</div>
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="healthWrap"><div id="healthFill"></div></div>
+    <div id="weapon">PISTOL 12 / ∞</div>
+  </div>
+  <canvas id="minimap" width="190" height="190"></canvas>
+  <div id="raceInfo"></div>
+  <div id="objective"></div>
+  <div id="speed"></div>
+  <div id="crosshair">+</div>
+  <div id="prompt"></div>
+  <div id="bustWrap"><div class="bustLabel">BUSTED</div><div class="bustBar"><div id="bustFill"></div></div></div>
+  <div id="dialogue"><div id="dialogueName"></div><div id="dialogueText"></div></div>
+  <div id="toasts"></div>
+  <div id="hint">WASD move · Mouse look · E interact · Shift sprint · Click shoot · F melee · R reload · H horn · M mute · P pause</div>
+</div>
+
+<div id="title" class="screen">
+  <div class="logo">PALMA <span>HEAT</span></div>
+  <div class="tagline">Bahía Palma · a getaway-driver story</div>
+  <div class="menu">
+    <button id="btnNew">New Game</button>
+    <button id="btnContinue">Continue</button>
+    <button id="btnHow">How to Play</button>
+    <button id="btnMute">🔊 Sound: On</button>
+  </div>
+  <div id="howto">
+    <p><b>Marco Reyes</b>, getaway driver for Carmen "La Jefa" Vega, works three jobs across the
+    sun-soaked bay city of Bahía Palma — then the city is his.</p>
+    <p><b>On foot:</b> WASD + mouse (click the game to lock the mouse), Shift sprint, E interact,
+    click to shoot the pistol, F melee, R reload.</p>
+    <p><b>Driving:</b> E to enter any car, WASD drive, Space handbrake, H horn, E to get out.
+    At a blue race ring, E starts the race instead.</p>
+    <p><b>Heat:</b> crimes raise your stars (top-left). Police pursue; if they pin you while you are
+    slow, the BUSTED meter fills. Lose them to cool off. Death sends you to the hospital (−10% cash);
+    arrest costs a fine. Save at Vega's Garage, from the pause menu, or automatically after each job.</p>
+    <p><b>Side money:</b> green packages +$75, street races +$150 (Bay Loop, Downtown Dash, Grid Iron).</p>
+  </div>
+  <div class="credits">An original game. Fictional city, people and story. Built with three.js.</div>
+</div>
+
+<div id="pause" class="screen" style="display:none">
+  <div class="logo small">PAUSED</div>
+  <div class="menu">
+    <button id="btnResume">Resume</button>
+    <button id="btnSave">Save</button>
+    <button id="btnLoad">Load</button>
+    <button id="btnRestart">Restart</button>
+    <button id="btnQuit">Quit to Title</button>
+  </div>
+</div>
+
+<div id="bigScreen" style="display:none"><div id="bigTitle">BUSTED</div><div id="bigSub"></div></div>
+
+<div id="endCard" style="display:none">
+  <div class="endInner">
+    <div class="logo small">PALMA HEAT</div>
+    <p id="endStats"></p>
+    <button id="btnEndClose">Keep Roaming</button>
+  </div>
+</div>
+
+<script type="module" src="./src/game.js"></script>
+</body>
+</html>
